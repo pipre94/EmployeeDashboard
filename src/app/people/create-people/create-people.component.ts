@@ -34,7 +34,6 @@ export class CreatePeopleComponent implements OnInit {
   }
   onPositionChange(value: number): void {
     console.log('Selected Position ID:', value);
-    // Aquí puedes hacer algo con el valor seleccionado
   }
 
   onSelectEmployee(employeeId: number) {
@@ -46,8 +45,7 @@ export class CreatePeopleComponent implements OnInit {
   }
   
   savePeople(){
-
-    if(this.idBypeoples == 0){
+    if(this.idBypeoples == undefined){
       this.peopleServices.createNewPeople(this.people).subscribe(
         (data) => {
           console.log(data);
