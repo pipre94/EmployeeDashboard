@@ -1,0 +1,33 @@
+<form class="row g-3 needs-validation" (ngSubmit)="savePeople()" #form="ngForm">
+    <div class="col-md-3 position-relative">
+      <label for="validationTooltip01" class="form-label">Nombres</label>
+      <input type="text" class="form-control" required [(ngModel)]="people.name" name="name" #name="ngModel">
+      
+    </div>
+    <div class="col-md-3 position-relative">
+      <label for="validationTooltip02" class="form-label">Cédula</label>
+      <input type="number" class="form-control" [(ngModel)]="people.idNumber" name="idNumber" #idNumber="ngModel"  required>
+      
+    </div>
+    <div class="col-md-2 position-relative">
+        <label for="validationTooltip04" class="form-label">Cargo</label>
+        <select class="form-select" id="validationTooltip04" [(ngModel)]="people.positionId" name="positionId" #positionId="ngModel" required _>
+        <option value="" disabled>Selecciona...</option>
+        @for (item of positions; track item.idPosition) {
+            <option value="{{item.idPosition}}">{{ item.name}}</option>
+        }        
+        </select>
+        
+    </div>
+    <div class="col-md-3 position-relative">
+        <label for="formFile" class="form-label">Foto</label>
+        <input type="file" class="form-control" [(ngModel)]="people.photo" name="photo" #photo="ngModel" required>        
+    </div>      
+    <div class="col-md-3 position-relative">
+      <label for="validationTooltip02" class="form-label">Fecha ingreso</label>
+      <input type="datetime-local" class="form-control" [(ngModel)]="people.admissionDate" name="admissionDate" #admissionDate="ngModel" required>    
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">@if (people.id == null) {Adicionar} @else{Actualizar}</button>
+    </div>
+  </form>

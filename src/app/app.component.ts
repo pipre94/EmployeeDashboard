@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { PeopleService } from './services/people.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,10 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'EmployeeDashboard';
+  constructor(private peopleServices: PeopleService){}
+
+  ngOnInit(): void {
+  }
 }

@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Foto</th>
+        <th scope="col">Fecha Ingreso</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>      
+        @for (item of people; track item.id) {
+          <tr>
+            <td>{{ item.id }}</td>  
+            <td>{{ item.idNumber }}</td> 
+            <td>{{ item.name }}</td> 
+            <td>{{ item.photo }}</td> 
+            <td>{{ item.admissionDate }}</td>
+            <td>{{ item.positionsEntity.name }}</td>
+            <td><button class="btn btn-warning" (click)="updatePeopleById(item.id)">Actualizar</button> <button class="btn btn-danger" (click)="deletePeople(item.id)">Eliminar</button></td>
+          </tr>
+        }    
+    </tbody>
+  </table>
